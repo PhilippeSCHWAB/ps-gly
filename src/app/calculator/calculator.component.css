@@ -1,0 +1,31 @@
+td,
+th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #eee;
+}
+
+th[scope="col"] {
+    background-color: #696969;
+    color: #fff;
+}
+
+th[scope="row"] {
+    background-color: #d7d9f2;
+}
+
+    button {
+        border-radius:12px 0 12px 0;
+        background: #478bf9;
+        border:none;
+        color:#fff;
+        font:bold 12px Verdana;
+        padding:6px 0 6px 0;
+    }

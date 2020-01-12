@@ -1,0 +1,116 @@
+<div>
+    <h1>Calculateur</h1>
+    <h2>Définition des portions</h2>
+    <form [formGroup]="ingredientForm" (ngSubmit)="onSubmit(ingredientForm.value)">
+        <div class="center-div">
+            <div class="block">
+                <label for="name">Aliment</label>
+                <select formControlName="aliment">
+                    <option value="">---</option>
+                    <option *ngFor="let aliment of alimentList; let i = index" [ngValue]="aliment">{{aliment.name}}
+                    </option>
+                </select>
+                <label for="portionGram">Portion (g)</label>
+                <input id="potionGram" type="number" formControlName="portionGram"
+                    placeholder='Enter Gram Portion Here'>
+            </div>
+            <br>
+            <button class="button" type="submit">Ajouter ingredient</button>
+        </div>
+    </form>
+
+    <h1>Charge totale</h1>
+    <h1>
+        <div id="sumIG">
+            <font color="orange">---</font>
+        </div>
+    </h1>
+
+    <table>
+        <caption>Liste des portions ajoutées</caption>
+        <thead>
+            <tr>
+                <th>Nom de l'aliment</th>
+                <th>Index glycémique</th>
+                <th>Proportion de glucides (g)</th>
+                <th>Charge glycémique calculée</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ingredient of ingredients; let i = index">
+                <td>{{ingredient.name}}</td>
+                <td>{{ingredient.ig}}</td>
+                <td>{{ingredient.carbsCalc}}</td>
+                <td>{{ (ingredient.igCalc).toFixed(2) }}</td>
+                <td><button (click)="ingredient.splice(i, 1)">supprimer</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--
+
+        <td>
+            <label> <input type="number" id="idIngredient" name="Ingredient"></label>
+        </td>
+        <td> <button class="button" type="submit">Ajouter</button></td>
+        <tr>
+
+
+            <td>
+                <SELECT name="aliment2" size="2">
+                    <option *ngFor="let aliment of alimentList">{{ aliment.name }}
+                    </option>
+                </SELECT>
+
+            </td>
+            <td>
+                <label> <input type="number" id="idIngredient" name="Ingredient"></label>
+            </td>
+    
+    
+        </tr>
+        
+-->
+
+<!--
+<H1>Charge totale</H1>
+<textarea name="textarea"> TODO 
+
+</textarea>
+
+<H1>Liste des portions ajoutées</H1>
+
+
+<table>
+
+    <thead>
+        <tr>
+            <th scope="col">Nom de l'aliment </th>
+            <th scope="col"> Index Glycémique </th>
+            <th scope="col"> Proportion de glucides (g/100g)</th>
+            <th scope="col"> Charge glycémique calculée</th>
+            <th scope="col"> TODO calcuL</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let FormatDesEnrIGCalcule of FormatDesEnrIGCalculeList">
+        <tr>
+            <td>{{FormatDesEnrIGCalcule.name}}</td>
+            <td>{{FormatDesEnrIGCalcule.ig}}</td>
+            <td> {{FormatDesEnrIGCalcule.carbs}}</td>
+            <td> {{FormatDesEnrIGCalcule.chargeGlycemiqueCalculee*1000}}</td>
+            <td>
+                ng-init= {{FormatDesEnrIGCalcule.chargeGlycemiqueCalculee*15}}</td>
+            <td> <button (click)="suppAliment(FormatDesEnrIGCalcule)" class="button">Suppression
+                    aliment</button>
+        </tr>
+    </tbody>
+    <tr>
+        <td>todo calcul</td>
+    </tr>
+
+
+
+</table>
+-->

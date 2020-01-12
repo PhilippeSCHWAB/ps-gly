@@ -1,0 +1,49 @@
+<form [formGroup]="alimentForm" (ngSubmit)="onNewAliment(alimentForm.value)">
+  <div>
+    <label for="alimentName">
+      New aliment name
+    </label>
+    <input id="alimentName" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="ig">
+      New aliment ig
+    </label>
+    <input id="ig" type="number" formControlName="ig">
+  </div>
+
+  <div>
+    <label for="Carbs">
+      New aliment carbs
+    </label>
+    <input id="Carbs" type="number" formControlName="carbs">
+  </div>
+
+
+  <button class="button" type="submit">Ajouter un aliment à la liste</button>
+
+</form>
+
+<table>
+
+  <thead>
+    <tr>
+      <th scope="col">Nom de l'aliment </th>
+      <th scope="col"> Index Glycémique </th>
+      <th scope="col"> Proportion de glucides (g/100g)</th>
+    </tr>
+  </thead>
+
+
+
+  <tbody *ngFor="let aliment of alimentList">
+    <tr>
+      <td>{{aliment.name}}</td>
+      <td>{{aliment.ig}}</td>
+      <td> {{aliment.carbs}}</td>
+      <td> <button (click)="suppAliment(aliment)" class="button">Suppression aliment</button></td>
+    </tr>
+  </tbody>
+
+</table>
